@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Blogs</title>
+  </head>
+  <body class="bg-dark">
+    <%- include('./partials/nav') %>
+
+  <div class="container">
+      <!-- hare is the blog content -->
+      <div class="container mt-4 text-light">
+        <div class="container mt-3">
+          <h1><%= blog.title %></h1>
+          <img src="<%= blog.coverImageURL %>" alt="Image" width="700px" />
+        </div>
+        <div class="container mt-4 ">
+          <pre class="mt-3"><%= blog.body %></pre>
+        </div>
+      </div>
+      <!-- this is show the which user create the blog -->
+      <div class="container mt-4 text-light">
+        <img
+          src="<%= blog.createdBy.profileImageUrl %>"
+          alt="User"
+          width="30px"
+        />
+        <%= blog.createdBy.fullName %>
+      </div>
+  </div>
+
+    <!-- here is the handle the comments -->
+    <div class="container mt-4 text-light">
+      <h3>Comments (<%= comments.length %>)</h3>
+      <% if (locals.user) { %>
+      <form action="/blog/comment/<%= blog._id %>" method="post">
+        <div class="mb-3">
+          <input
+            type="text"
+            name="content"
+            class="form-control"
+            placeholder="Enter your comment"
+          />
+          <div type="submit" class="btn btn-sm btn-primary mt-2">Add</div>
+        </div>
+      </form>
+      <% } %>
+    </div>
+
+    <!-- here is show the all comment -->
+    <div class="container mt-4 text-light">
+      <% comments.forEach(comment => { %>
+      <img src="<%= comment.createdBy.profileImageUrl %>"  width="30px"/>
+      <%= comment.createdBy.fullName %>
+      <pre><%= comment.content %></pre>
+       <% }) %>
+    </div>
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

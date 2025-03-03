@@ -4,11 +4,11 @@
     <%- include('./partials/head') %>
     <title>User SignIn</title>
   </head>
-  <body>
+  <body style="background-color: rgba(56, 56, 133, 0.568);" >
     <%- include('./partials/nav') %>
 
-    <!-- this is signup form -->
-    <div class="container mt-4">
+    <!-- Signin form -->
+    <div class="container mt-5 p-3 border border-primery text-light" style="width: 30%; background: #000000b9;">
       <form action="/user/signin" method="post"  >
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label"
@@ -19,6 +19,7 @@
             name="email"
             class="form-control"
             id="exampleInputEmail1"
+            placeholder="Enter correct Email"
             aria-describedby="emailHelp"
           />
           <div id="emailHelp" class="form-text">
@@ -31,6 +32,7 @@
           name="password"
             type="password"
             class="form-control"
+            placeholder="Enter correct Password"
             id="exampleInputPassword1"
           />
         </div>
@@ -41,3 +43,5 @@
     <%- include('./partials/scripts') %>
   </body>
 </html>
+
+

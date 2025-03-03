@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Blogs body</title>
+  </head>
+  <body style="background-color: rgba(0, 0, 255, 0.582)">
+    <%- include('./partials/nav') %>
+
+    <div class="container mt-3">
+      <form action="/blog" method="post" enctype="multipart/form-data">
+        <!-- this is for the choose cover image -->
+        <div class="mb-3">
+          <h4>
+            <label for="coverImage" class="form-label">Cover Image</label>
+          </h4>
+          <input
+            type="file"
+            class="form-control"
+            id="coverImage"
+            name="coverImage"
+            aria-describedby="coverImage"
+          />
+        </div>
+        <!-- This div for Title -->
+        <div class="mb-3">
+          <h4><label for="title" class="form-title">Title</label></h4>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            aria-describedby="title"
+            placeholder="Write the Title of blogs"
+          />
+        </div>
+
+        <!-- This div for the blog body -->
+        <div class="mb-3">
+          <h4><label for="body" class="form-title">Blog Body</label></h4>
+          <textarea
+            class="form-control"
+            name="body"
+            id="body"
+            placeholder="Write your blog content here..."
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

@@ -4,23 +4,25 @@
     <%- include('./partials/head') %>
     <title>User SignUp</title>
   </head>
-  <body>
+  <body style="background-color: rgb(55, 53, 53)">
     <%- include('./partials/nav') %>
 
-    <!-- this is signup form -->
-    <div class="container mt-4">
-      <form action="/user/signup" method="post"  >
+    <!-- This is signup form -->
+    <div
+      class="container mt-4 p-3 text-light"
+      style="background-color: rgb(94, 87, 87)"
+    >
+      <form action="/user/signup" method="post">
         <div class="mb-3">
-            <label for="fullName" class="form-label"
-              >FullName</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="fullName"
-              name="fullName"
-              aria-describedby="emailHelp"
-            />
+          <label for="fullName" class="form-label">FullName</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            name="fullName"
+            placeholder="Enter Your fullName"
+            aria-describedby="emailHelp"
+          />
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label"
@@ -31,22 +33,24 @@
             name="email"
             class="form-control"
             id="exampleInputEmail1"
+            placeholder="Example-example2356@gmail.com"
             aria-describedby="emailHelp"
           />
-          <div id="emailHelp" class="form-text">
+          <div id="emailHelp" class="form-text text-light">
             We'll never share your email with anyone else.
           </div>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input
-          name="password"
+            name="password"
             type="password"
             class="form-control"
+            placeholder="Enter Strong password"
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Create Account</button>
       </form>
     </div>
 
