@@ -3,6 +3,7 @@ const { createTokenForUser } = require("../services/authentication");
 //For encript the password
 const { createHmac, randomBytes } = require("crypto");
 
+//This is schema for NewUser
 const userSchema = new Schema(
   {
     fullName: {
@@ -35,7 +36,10 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-//This whole procedure for the hash the password
+
+//     HERE IS USING THE HASHING FOR THE PASSWORD     //
+
+//This whole procedure for hash the password
 userSchema.pre("save", function (next) {
   const user = this;
   if (!user.isModified("password")) return;
@@ -50,10 +54,11 @@ userSchema.pre("save", function (next) {
   next();
 });
 
-//This for the chech the password before login
+//This method check password and email before login
 userSchema.static(
   "matchPasswordAndGenerateToken",
   async function (email, password) {
+    //Fetch user from db using email
     const user = await this.findOne({ email });
     if (!user) throw new Error("User Not Found!");
 
@@ -71,6 +76,6 @@ userSchema.static(
   }
 );
 
+// Here is the exporting the schema
 const User = model("user", userSchema);
-
 module.exports = User;
